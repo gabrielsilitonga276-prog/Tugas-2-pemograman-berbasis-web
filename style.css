@@ -1,0 +1,257 @@
+/* ==========================================================
+   1. PENGATURAN DASAR (RESET & FONT)
+   ========================================================== */
+* { 
+    box-sizing: border-box; /* Memastikan padding & border tidak merusak ukuran elemen */
+    margin: 0;              /* Menghapus margin bawaan browser */
+    padding: 0;             /* Menghapus padding bawaan browser */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Jenis huruf utama */
+}
+
+body { 
+    background-color: #f4f7f6; /* Warna latar belakang halaman (abu-abu terang) */
+    color: #333;               /* Warna teks utama (abu-abu gelap agar nyaman dibaca) */
+}
+
+
+/* ==========================================================
+   2. HEADER APLIKASI (NAMA, NIM, FOTO, & TOMBOL LOGOUT)
+   ========================================================== */
+.app-header { 
+    background: linear-gradient(135deg, #2c3e50, #4ca1af); /* Gradasi warna latar header */
+    color: white;                                        /* Warna teks di dalam header */
+    padding: 20px 40px;                                  /* Jarak dalam (atas-bawah & kiri-kanan) */
+    display: flex;                                       /* Mengatur posisi elemen secara sejajar (flexbox) */
+    justify-content: space-between;                      /* Membagi jarak agar elemen menyebar ke ujung */
+    align-items: center;                                 /* Menyelaraskan posisi secara vertikal di tengah */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);               /* Efek bayangan tipis di bawah header */
+}
+
+.profile-info h2 { 
+    font-size: 1.4rem;    /* Ukuran teks nama */
+    margin-bottom: 4px;   /* Jarak bawah nama ke teks NIM */
+}
+
+.profile-info p { 
+    font-size: 0.95rem;   /* Ukuran teks NIM */
+    opacity: 0.9;         /* Tingkat kejelasan/transparansi teks */
+}
+
+.profile-avatar img { 
+    width: 70px;          /* Lebar foto profil */
+    height: 70px;         /* Tinggi foto profil */
+    border-radius: 50%;   /* Membuat foto berbentuk lingkaran sempurna */
+    object-fit: cover;    /* Memastikan foto tidak gepeng/terdistorsi */
+    border: 3px solid white; /* Garis pinggir putih di sekeliling foto */
+}
+
+.btn-logout { 
+    background-color: #e74c3c; /* Warna latar tombol logout (merah) */
+    color: white;              /* Warna teks tombol */
+    padding: 8px 16px;         /* Ukuran ruang dalam tombol */
+    border-radius: 4px;        /* Membuat sudut tombol melengkung halus */
+    text-decoration: none;     /* Menghilangkan garis bawah pada link */
+    font-weight: 600;          /* Ketebalan teks */
+}
+
+.btn-logout:hover { 
+    background-color: #c0392b; /* Warna tombol logout berubah lebih gelap saat kursor diarahkan */
+}
+
+
+/* ==========================================================
+   3. KONTROL UTAMA & KOTAK KONTEN (CONTAINER)
+   ========================================================== */
+.container { 
+    max-width: 650px;                 /* Batas lebar maksimal kotak konten */
+    margin: 40px auto;                /* Posisi berada di tengah halaman dengan jarak atas */
+    background: white;                /* Warna latar kotak konten */
+    padding: 30px;                    /* Jarak dalam kotak */
+    border-radius: 8px;               /* Sudut kotak melengkung */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Bayangan lembut di sekeliling kotak */
+}
+
+h1 { 
+    font-size: 1.5rem;      /* Ukuran judul utama halaman */
+    margin-bottom: 20px;    /* Jarak bawah judul */
+    color: #2c3e50;         /* Warna teks judul */
+}
+
+
+/* ==========================================================
+   4. FORM INPUT TUGAS (BARU)
+   ========================================================== */
+.task-form { 
+    display: flex;         /* Menyusun input text dan tombol secara berdampingan */
+    gap: 10px;             /* Jarak antara kolom input dan tombol */
+    margin-bottom: 25px;   /* Jarak bawah form ke tabel tugas */
+}
+
+.task-form input[type="text"] { 
+    flex: 1;               /* Mengisi sisa ruang kosong secara fleksibel */
+    padding: 10px 15px;    /* Ruang dalam kotak input */
+    border: 1px solid #ccc;/* Warna garis tepi kotak input */
+    border-radius: 4px;    /* Sudut melengkung */
+    font-size: 1rem;       /* Ukuran teks input */
+    outline: none;         /* Menghilangkan garis biru bawaan browser saat diklik */
+}
+
+.btn-add { 
+    background-color: #27ae60; /* Warna tombol tambah (hijau) */
+    color: white;              /* Warna teks */
+    border: none;              /* Tanpa garis tepi */
+    padding: 10px 20px;        /* Ukuran tombol */
+    border-radius: 4px;        /* Sudut melengkung */
+    font-weight: 600;          /* Ketebalan teks */
+    cursor: pointer;           /* Mengubah bentuk kursor menjadi tangan saat diarahkan */
+}
+
+.btn-add:hover { 
+    background-color: #219653; /* Warna hijau lebih tua saat kursor diarahkan */
+}
+
+
+/* ==========================================================
+   5. TABEL DAFTAR TUGAS (TO-DO LIST TABLE)
+   ========================================================== */
+.task-table { 
+    width: 100%;             /* Lebar tabel memenuhi kotak container */
+    border-collapse: collapse; /* Menggabungkan garis border tabel agar rapi */
+}
+
+.task-table tr { 
+    border-bottom: 1px solid #eee; /* Garis pemisah tipis di setiap baris tugas */
+}
+
+.task-table td { 
+    padding: 12px 10px;      /* Ruang dalam sel tabel (atas-bawah & kiri-kanan) */
+    vertical-align: middle;  /* Menyelaraskan posisi teks dan tombol agar sejajar di tengah */
+}
+
+.task-text { 
+    font-size: 1.05rem;      /* Ukuran teks nama tugas */
+}
+
+.task-text.completed { 
+    text-decoration: line-through; /* Memberikan efek coret pada teks jika tugas selesai */
+    color: #888;                   /* Mengubah warna teks menjadi abu-abu redup */
+}
+
+.action-cell { 
+    text-align: right;     /* Memposisikan tombol aksi (Selesai/Hapus) di sebelah kanan */
+    white-space: nowrap;   /* Mencegah tombol turun baris (tetap satu baris horizontal) */
+}
+
+.btn-action { 
+    display: inline-block; 
+    padding: 6px 12px;     /* Ukuran tombol aksi */
+    border-radius: 4px;    /* Sudut melengkung */
+    font-size: 0.85rem;    /* Ukuran teks lebih kecil */
+    text-decoration: none; /* Hilangkan garis bawah link */
+    font-weight: 600;      /* Ketebalan teks */
+    margin-left: 5px;      /* Jarak antar tombol aksi */
+}
+
+.btn-selesai { 
+    background-color: #3498db; /* Warna tombol "Selesai" (biru) */
+    color: white;
+}
+
+.btn-selesai:hover { 
+    background-color: #2980b9; /* Biru lebih gelap saat disorot */
+}
+
+.btn-hapus { 
+    background-color: #e74c3c; /* Warna tombol "Hapus" (merah) */
+    color: white;
+}
+
+.btn-hapus:hover { 
+    background-color: #c0392b; /* Merah lebih gelap saat disorot */
+}
+
+.empty-task { 
+    text-align: center; /* Posisi teks di tengah */
+    color: #777;        /* Warna teks abu-abu */
+    padding: 20px;      /* Ruang kosong jika daftar tugas kosong */
+}
+
+
+/* ==========================================================
+   6. HALAMAN LOGIN (LOGIN PAGE STYLING)
+   ========================================================== */
+.login-body { 
+    background: linear-gradient(135deg, #2c3e50, #4ca1af); /* Latar belakang gradasi untuk halaman login */
+    height: 100vh;                                        /* Tinggi memenuhi 100% layar browser */
+    display: flex;                                        /* Mengatur posisi ke tengah */
+    justify-content: center;                              /* Posisi tengah secara horizontal */
+    align-items: center;                                  /* Posisi tengah secara vertikal */
+}
+
+.login-card { 
+    background: white;                /* Warna kotak kartu login */
+    padding: 40px;                    /* Ruang dalam kartu */
+    border-radius: 8px;               /* Sudut melengkung */
+    width: 100%;                      
+    max-width: 400px;                 /* Lebar maksimal kartu */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15); /* Bayangan tegas agar kartu tampak mengapung */
+}
+
+.login-card h2 { 
+    margin-bottom: 20px; 
+    color: #2c3e50; 
+    text-align: center;               /* Judul login diposisikan di tengah */
+}
+
+.form-group { 
+    margin-bottom: 15px;              /* Jarak antar kolom input di form login */
+}
+
+.form-group label { 
+    display: block;                   /* Label berada di atas kotak input */
+    margin-bottom: 5px; 
+    font-weight: 600; 
+    color: #555; 
+    font-size: 0.9rem; 
+}
+
+.form-group input { 
+    width: 100%;                      /* Lebar kotak input memenuhi lebar kartu */
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 1rem; 
+}
+
+.btn-submit { 
+    width: 100%;                      /* Tombol submit selebar kartu */
+    background-color: #2c3e50;        /* Warna latar tombol (biru gelap) */
+    color: white; 
+    border: none; 
+    padding: 10px; 
+    border-radius: 4px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    margin-top: 10px; 
+}
+
+.btn-submit:hover { 
+    background-color: #1a252f;        /* Warna tombol lebih gelap saat disorot */
+}
+
+.alert-error { 
+    background-color: #fadbd8;        /* Warna latar kotak peringatan error (merah muda) */
+    color: #900c3f;                   /* Warna teks peringatan (merah tua) */
+    padding: 10px; 
+    border-radius: 4px; 
+    margin-bottom: 15px; 
+    font-size: 0.85rem; 
+    text-align: center; 
+}
+
+.hint-text { 
+    margin-top: 15px; 
+    font-size: 0.8rem; 
+    color: #666;                      /* Teks petunjuk akun default di bagian bawah login */
+    text-align: center; 
+}
